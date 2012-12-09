@@ -10,8 +10,11 @@ $("#search").on("input", function() {
   var imagesHtml = "";
   matchedMeigens.forEach(function(meigen, index) {
     if (index >= 12) return;
-    imagesHtml += '<a href="http://jigokuno.com/?eid=' + meigen.eid + '" target="_blank">' +
-        '<img src="' + meigen.image + '" alt="' + meigen.title + '"></a>';
+    imagesHtml += '<section>' +
+        '<a href="http://jigokuno.com/?eid=' + meigen.eid + '" target="_blank">' +
+        '<img src="' + meigen.image + '" alt="' + meigen.title + '"></a><br>' +
+        '<input readonly value="' + meigen.image + '">' +
+        '</section>';
   });
   $("#images").html(imagesHtml);
 });
