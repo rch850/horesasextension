@@ -1,0 +1,12 @@
+{
+  "name": "Horesasextension",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Chrome Horesase Extension.",
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "permissions": [
+    "http://api.flickr.com/"
+  ]
+}
