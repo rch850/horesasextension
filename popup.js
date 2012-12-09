@@ -10,7 +10,8 @@ $("#search").on("input", function() {
   var imagesHtml = "";
   matchedMeigens.forEach(function(meigen, index) {
     if (index >= 12) return;
-    imagesHtml += '<img src="' + meigen.image + '" alt="' + meigen.title + '">';
+    imagesHtml += '<a href="http://jigokuno.com/?eid=' + meigen.eid + '" target="_blank">' +
+        '<img src="' + meigen.image + '" alt="' + meigen.title + '"></a>';
   });
   $("#images").html(imagesHtml);
 });
