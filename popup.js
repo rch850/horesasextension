@@ -2,14 +2,15 @@ $("#search").on("input", function() {
   var keyword = $("#search").val();
 
   var matchedMeigens = MEIGENS.filter(function(meigen) {
-    return meigen.title.indexOf(keyword) !== -1
-        || meigen.body.indexOf(keyword) !== -1;
+    return keyword !== "" && (
+      meigen.title.indexOf(keyword) !== -1
+      || meigen.body.indexOf(keyword) !== -1);
   });
 
-  if (matchedMeigens.length > 0) {
-    $("#img").attr("src", matchedMeigens[0].image);
-    $("#img").fadeIn();
-  } else {
-    $("#img").fadeOut();
-  }
+  var imagesHtml = "";
+  matchedMeigens.forEach(function(meigen, index) {
+    if (index >= 12) return;
+    imagesHtml += '<img src="' + meigen.image + '" alt="' + meigen.title + '">';
+  });
+  $("#images").html(imagesHtml);
 });
